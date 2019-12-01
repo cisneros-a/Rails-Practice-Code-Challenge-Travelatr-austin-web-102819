@@ -1,0 +1,25 @@
+<h2><%= @blogger.name %>  </h2>
+
+<ul>
+<li> 
+    Age: <%= @blogger.age %>
+</li>
+<li> 
+    Bio: <%= @blogger.bio %>
+</li>
+<li>
+    Posts: <% @blogger.posts.each do |post|%>
+    <%= post.title %><br>
+    <% end %>
+</li>
+<li>
+    Likes: <%= @blogger.posts.reduce(0){|sum, blog| sum + blog.likes.to_i}%>
+</li>
+<li>
+    Most liked post: <% @post = @blogger.posts.max_by{|x| x.likes} %> <%= @post.title%>
+</li>
+<li><%= @post %></li>
+
+
+
+</ul> 
